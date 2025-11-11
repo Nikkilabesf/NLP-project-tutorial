@@ -131,8 +131,8 @@ Machine Learning Engineer | Data Science & AI Student
 
 <div align="center">
 
-✨ Built with passion, patience, and teal energy 💎
-Made for the journey from Data Science Student → Machine Learning Engineer 🚀
+                         ✨ Built with passion, patience, and teal energy 💎
+                       Made for the journey from Data Science Student → Machine Learning Engineer 🚀
 
-</div> ```
+</div> 
 
