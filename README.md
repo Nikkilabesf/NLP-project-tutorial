@@ -44,4 +44,93 @@ It demonstrates an end-to-end workflow from raw text cleaning to model training,
 Each URL is processed with regex & tokenization to keep meaningful words like  
 `paypal`, `login`, `secure`, `update`, `net`, etc.
 
-Example:
+Example: Original: http://paypal-login-secure-update.com
+Cleaned: paypal-login-secure-update.com
+
+
+
+
+---
+
+## 📊 Model Performance  
+
+| Metric | Score |
+|--------|-------|
+| **Accuracy** | ~0.92 |
+| **Precision** | 0.93 |
+| **Recall** | 0.88 |
+| **F1-Score** | 0.90 |
+
+*(Exact results may vary per training run.)*
+
+---
+
+## 💾 Saved Files  
+
+models/
+├── url_spam_svm.pkl ← trained SVM model
+└── tfidf_vectorizer.pkl ← TF-IDF vectorizer
+
+
+
+These files allow you to reload the trained model for real-time predictions.
+
+---
+
+## 🔍 Example Usage  
+
+```python
+from joblib import load
+import re
+
+# Load model and vectorizer
+model = load("models/url_spam_svm.pkl")
+vectorizer = load("models/tfidf_vectorizer.pkl")
+
+def clean_url(text):
+    text = re.sub(r'https?://|www\.', '', str(text))
+    text = re.sub(r'[-_/]', ' ', text)
+    text = re.sub(r'[^a-zA-Z0-9\. ]', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip().lower()
+    return text
+
+def predict_spam(url_text):
+    cleaned = clean_url(url_text)
+    vectorized = vectorizer.transform([cleaned])
+    pred = model.predict(vectorized)[0]
+    return "🚨 SPAM DETECTED" if pred else "✅ SAFE LINK"
+
+# Example
+print(predict_spam("http://paypal-login-secure-update.com"))
+
+Output:
+
+🚨 SPAM DETECTED
+
+
+url_spam_detector/
+│
+├── url_spam_detector.ipynb
+├── models/
+│   ├── url_spam_svm.pkl
+│   └── tfidf_vectorizer.pkl
+└── README.md
+
+
+
+💫 About the Author
+
+👩🏽‍💻 Tenika Powell
+Machine Learning Engineer | Data Science & AI Student
+📍 Benton Harbor, MI
+🌐 GitHub – Nikkilabesf
+
+“Turning curiosity into code and data into power.”
+
+<div align="center">
+
+✨ Built with passion, patience, and teal energy 💎
+Made for the journey from Data Science Student → Machine Learning Engineer 🚀
+
+</div> ```
+
