@@ -1,55 +1,47 @@
-<!-- hide -->
-# SVM - Step by step guide
-<!-- endhide -->
+<div align="center">
 
-- Understanding a new dataset.
-- Model the data using an SVM.
-- Analyze the results and optimize the model.
+# ✨ URL Spam Detection System  
+### 🚨 Detect malicious or spammy links using Machine Learning  
 
-## 🌱 How to start this project
+*Built with love, data, and code by **Tenika Powell** 💻🩵*  
 
-Follow the instructions below:
+</div>
 
-1. Create a new repository based on [machine learning project](https://github.com/4GeeksAcademy/machine-learning-python-template) by [clicking here](https://github.com/4GeeksAcademy/machine-learning-python-template/generate).
-2. Open the newly created repository in Codespace using the [Codespace button extension](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
-3. Once the Codespace VSCode has finished opening, start your project by following the instructions below.
+---
 
-## 🚛 How to deliver this project
+## 🌐 Overview  
 
-Once you have finished solving the exercises, be sure to commit your changes, push them to your repository, and go to 4Geeks.com to upload the repository link.
+The **URL Spam Detection System** is a Natural Language Processing (NLP) and Machine Learning project that automatically classifies web links as **SPAM** or **SAFE**.  
+It demonstrates an end-to-end workflow from raw text cleaning to model training, evaluation, and deployment — all inside a Jupyter notebook.
 
-## 📝 Instructions
+---
 
-### Spam link detection system
+## ⚙️ Tech Stack  
 
-We want to implement a system that is able to automatically detect whether a web page contains spam or not based on its URL.
+| Category | Tools |
+|-----------|--------|
+| **Language** | Python 🐍 |
+| **Libraries** | `pandas`, `nltk`, `scikit-learn`, `joblib` |
+| **Model** | Support Vector Machine (SVM) |
+| **Feature Engineering** | TF-IDF Vectorization |
+| **Environment** | Jupyter Notebook → `url_spam_detector.ipynb` |
 
-#### Step 1: Loading the dataset
+---
 
-The dataset can be found in this project folder under the name `url_spam.csv`. You can load it into the code directly from the link:
+## 🧩 Project Workflow  
 
-```text
-https://raw.githubusercontent.com/4GeeksAcademy/NLP-project-tutorial/main/url_spam.csv
-```
+1. **Load Dataset** → `url_spam.csv`  
+2. **Clean URLs** → remove protocols, symbols, normalize case  
+3. **Vectorize Text** → TF-IDF converts text into numeric features  
+4. **Train Model** → linear SVM learns spam vs. safe patterns  
+5. **Evaluate Model** → accuracy, precision, recall, F1-score  
+6. **Save Artifacts** → export trained model & vectorizer  
 
-Or download it and add it by hand in your repository.
+---
 
-#### Step 2: Preprocess the links
+## 🧼 Data Cleaning  
 
-Use what we have seen in this module to transform the data to make it compatible with the model we want to train. Segment the URLs into parts according to their punctuation marks, remove stopwords, lemmatize, and so on.
+Each URL is processed with regex & tokenization to keep meaningful words like  
+`paypal`, `login`, `secure`, `update`, `net`, etc.
 
-Make sure to conveniently split the dataset into `train` and `test` as we have seen in previous lessons.
-
-#### Step 3: Build an SVM
-
-Start solving the problem by implementing an SVM with the default parameters. Train it and analyze its results.
-
-#### Step 4: Optimize the previous model
-
-After training the SVM, optimize its hyperparameters using a grid search or a random search.
-
-#### Step 5: Save the model
-
-Store the model in the corresponding folder.
-
-> Note: We also incorporated the solution samples on `./solution.ipynb` that we strongly suggest you only use if you are stuck for more than 30 min or if you have already finished and want to compare it with your approach.
+Example:
